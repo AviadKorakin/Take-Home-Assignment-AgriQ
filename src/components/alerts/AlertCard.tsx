@@ -7,7 +7,7 @@ interface AlertCardProps {
   alert: AlertItem;
 }
 
-export default function AlertCard({ alert }: AlertCardProps) {
+export default function AlertCard({ alert }: Readonly<AlertCardProps>) {
   return (
     <Card as="article" className={styles.card}>
       <div className={styles.topRow}>

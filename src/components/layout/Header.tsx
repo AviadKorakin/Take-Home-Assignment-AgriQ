@@ -6,12 +6,15 @@ interface HeaderProps {
   readonly onChangePage: (page: AppPage) => void;
 }
 
-export default function Header({ currentPage, onChangePage }: Readonly<HeaderProps>) {
+export default function Header({
+  currentPage,
+  onChangePage,
+}: Readonly<HeaderProps>) {
   return (
     <header className={styles.header}>
       <div className={styles.leftGroup}>
         <div className={styles.brand}>
-          <h1 className={styles.title}>agroQ</h1>
+          <h1 className={styles.title}>agriQ</h1>
         </div>
 
         <nav className={styles.nav} aria-label="Main navigation">
@@ -32,7 +35,7 @@ export default function Header({ currentPage, onChangePage }: Readonly<HeaderPro
           >
             Alerts
           </button>
-        </nav> 
+        </nav>
       </div>
     </header>
   );

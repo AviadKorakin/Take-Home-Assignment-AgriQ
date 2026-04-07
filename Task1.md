@@ -208,9 +208,11 @@ erDiagram
     SITE_SAMPLE ||--o{ PILE_SAMPLE : ""
 
     PILE ||--o{ PILE_SAMPLE : ""
-    PILE_SAMPLE ||--o{ PILE_SAMPLE_READING : ""
+    PILE_SAMPLE ||--o{ BALL_READING : ""
     PILE_SAMPLE ||--o{ PILE_SAMPLE_ERROR : ""
     PILE_SAMPLE ||--o{ RISK_ASSESSMENT : ""
+
+    PILE_BALL ||--o{ BALL_READING : ""
     RISK_ASSESSMENT ||--o{ ALERT : ""
 
     SITE {
@@ -229,8 +231,8 @@ erDiagram
     PILE_BALL {
         uuid ball_id PK
         uuid pile_id FK
-        string layer
-        int placement_in_layer
+        string nickname
+        string placement_in_pile
         boolean is_active
     }
 
@@ -268,8 +270,8 @@ erDiagram
         float ambient_humidity_pct
     }
 
-    PILE_SAMPLE_READING {
-        uuid id PK
+    BALL_READING {
+        uuid ball_reading_id PK
         uuid pile_sample_id FK
         uuid ball_id FK
         datetime reading_timestamp

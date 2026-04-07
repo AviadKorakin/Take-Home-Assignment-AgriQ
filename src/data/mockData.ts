@@ -108,7 +108,7 @@ export const piles: Pile[] = [
     siteName: "Main Site",
     pileName: "Emek East",
     status: "Critical",
-    mostSensors: { temperatureC: 26, moisturePct: 13.0 },
+    mostSensors: { temperatureC: 26, moisturePct: 13 },
     problemSensors: [
       {
         sensorRange: "S11-S15",
@@ -123,7 +123,7 @@ export const piles: Pile[] = [
         issue: "Erratic readings, possible faulty sensor",
       },
     ],
-    sensors: buildSensors("emek-east", 26, 13.0, [
+    sensors: buildSensors("emek-east", 26, 13, [
       {
         id: "emek-east-S11",
         status: "Critical",
