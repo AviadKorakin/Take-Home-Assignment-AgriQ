@@ -7,7 +7,7 @@ This platform is designed as an **edge-to-cloud grain monitoring system**.
 Its purpose is to:
 
 - collect raw readings from sensor balls inside each pile
-- combine those readings with local ambient data and external data sources
+- combine raw readings with local ambient data and external data sources
 - evaluate pile risk over time
 - present clear alerts to the operator
 
@@ -17,17 +17,27 @@ The two main design goals are:
   The platform should continue working even when some sensors are missing, faulty, or temporarily disconnected.
 
 - **Clarity**  
-  The platform should preserve raw readings for traceability, turn them into understandable risk assessments, and support future ERP and business integrations.
+  The platform should preserve raw readings for traceability, convert them into understandable risk assessments, and support future ERP and business integrations.
 
 ---
 
 ## System Architecture
 
-Each grain pile contains sensor balls distributed across three layers:
+Each grain pile contains sensor balls distributed across the pile.
 
-- bottom
-- middle
-- top
+Their physical placement can be described in two dimensions:
+
+- **vertical layer**
+  - bottom
+  - middle
+  - top
+
+- **horizontal column**
+  - left
+  - center
+  - right
+
+This makes it easier to understand where a sensor is located inside the pile and helps later when detecting local hotspots or moisture clusters.
 
 Each ball reports:
 
@@ -41,7 +51,8 @@ Sampling happens every **12 hours**.
 At the site level:
 
 - sensor balls send readings upward
-- local gateways collect the readings
+- layer gateways collect readings from the balls in their area
+- pile gateways aggregate pile-level information
 - the site gateway validates payloads
 - timestamps are attached consistently
 - data is buffered during short connectivity issues
@@ -51,7 +62,7 @@ At the site level:
 
 In the cloud, the backend stores:
 
-- raw sensor readings
+- raw ball readings
 - ambient gateway readings
 - local weather data
 - CBOT commodity price data
@@ -162,7 +173,7 @@ The main entities in the system are:
 - sensor balls
 - site sampling cycles
 - pile sampling cycles
-- raw ball readings
+- ball readings
 - ambient readings
 - weather snapshots
 - ingestion errors
@@ -176,10 +187,11 @@ This model keeps the business structure clear while also making trend analysis e
 It supports analysis such as:
 
 - rising temperature over time
-- moisture trends
+- moisture trends over time
 - repeated warnings
 - long-term pile behavior
 - data quality changes across sampling cycles
+- risk concentration by area inside the pile
 
 ### Risk assessment meaning
 
@@ -232,7 +244,8 @@ erDiagram
         uuid ball_id PK
         uuid pile_id FK
         string nickname
-        string placement_in_pile
+        string layer_in_pile
+        string column_in_pile
         boolean is_active
     }
 
@@ -318,8 +331,6 @@ erDiagram
     }
 ```
 
----
-
 ## Reliable Data Ingestion
 
 Reliable ingestion matters because the system must remain useful even when:
@@ -387,19 +398,28 @@ The system should examine:
 - changes across time
 - consistency between neighboring sensors
 - whether the pattern is isolated or spreading
+- whether the pattern is concentrated in a specific area of the pile
 
-### Layer-level interpretation
+### Layer-level and area-level interpretation
 
 Median values per layer are useful because they:
 
 - represent the general state of the layer
 - are less sensitive to random spikes than averages
 
-At the same time, outlier readings should still be preserved because they may indicate:
+At the same time, individual outlier readings should still be preserved because they may indicate:
 
 - a local hotspot
 - a moisture pocket
 - an early developing issue
+
+Because each ball also has a horizontal column position, the backend can reason not only by layer but also by area.
+
+That means the system can identify patterns such as:
+
+- repeated issues in the left side of the pile
+- deterioration concentrated in the center
+- localized risk in the top-right region
 
 ### Combined temperature and moisture risk
 
@@ -434,6 +454,7 @@ A likely real pile issue pattern is:
 
 - several nearby balls worsen together
 - the worsening continues across consecutive 12-hour cycles
+- the readings form a meaningful spatial cluster inside the pile
 
 ### Gradual vs sudden deterioration
 
@@ -508,3 +529,7 @@ This would allow the platform to support:
 - operational planning
 - inventory workflows
 - business reporting
+
+```
+
+```
