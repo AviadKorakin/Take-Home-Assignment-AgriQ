@@ -529,7 +529,3 @@ This would allow the platform to support:
 - operational planning
 - inventory workflows
 - business reporting
-
-```
-
-```

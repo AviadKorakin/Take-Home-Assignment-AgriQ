@@ -1,5 +1,12 @@
 ## Getting Started
 
+This repository contains my submission for the home assignment:
+
+- **Task 1** — the backend architecture design document, available in [`task1.md`](./task1.md)
+- **Task 2** — the implemented application in this repository, built in alignment with the system design, data model, and assumptions described in Task 1
+
+### Running the project locally
+
 1. Install dependencies:
 
 ```bash
@@ -12,8 +19,4 @@ npm install
 npm run dev
 ```
 
-3. Open your browser and view the app at:
-
-```text
-http://localhost:5173
-```
+3. Open the application in your browser: [http://localhost:5173](http://localhost:5173)
