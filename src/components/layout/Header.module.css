@@ -34,16 +34,34 @@
 }
 
 .nav {
+  position: relative;
   display: flex;
   align-items: stretch;
   gap: 0;
+  isolation: isolate;
+}
+
+.activeIndicator {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  background: var(--bg-button-active);
+  border-radius: 0;
+  z-index: 0;
+  transition:
+    transform 260ms ease,
+    width 260ms ease;
+  pointer-events: none;
 }
 
 .navButton {
+  position: relative;
+  z-index: 1;
   height: 100%;
   min-height: 64px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   border: none;
   background: transparent;
   color: var(--text-toolbar-soft);
@@ -51,25 +69,22 @@
   font-weight: 700;
   cursor: pointer;
   transition:
-    background var(--transition-fast),
     color var(--transition-fast),
     padding var(--transition-medium);
 }
 
 .navButton:hover {
-  background: var(--bg-button-hover);
   color: var(--text-toolbar);
   padding-left: 22px;
   padding-right: 22px;
 }
 
 .active {
-  background: var(--bg-button-active);
   color: var(--text-toolbar);
 }
 
 .active:hover {
-  background: var(--bg-button-active);
+  color: var(--text-toolbar);
 }
 
 @media (max-width: 700px) {
@@ -96,6 +111,5 @@
   .navButton {
     min-height: 52px;
     flex: 1 1 0;
-    justify-content: center;
   }
 }
