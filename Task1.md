@@ -19,8 +19,6 @@ The two main design goals are:
 - **Clarity**  
   The platform should preserve raw readings for traceability, convert them into understandable risk assessments, and support future ERP and business integrations.
 
----
-
 ## System Architecture
 
 Each grain pile contains sensor balls distributed across the pile.
@@ -93,8 +91,6 @@ And it keeps the cloud side focused on:
 - long-term storage
 - future integrations
 
----
-
 ## System Diagram
 
 ```mermaid
@@ -155,8 +151,6 @@ flowchart TD
     C --> ERP["Future ERP / Analytics"]
 ```
 
----
-
 ## Database Structure
 
 The backend uses a **hybrid storage approach**:
@@ -204,8 +198,6 @@ It includes:
 - whether the change was gradual or sudden
 - whether combined temperature and moisture behavior increased the risk level
 - the confidence score
-
----
 
 ## ERD
 
@@ -368,8 +360,6 @@ In that case, the backend should:
 - lower confidence in the result
 - make the data quality issue visible to the operator
 
----
-
 ## Risk Logic
 
 The risk engine should classify pile risk using **patterns**, not a single isolated reading.
@@ -480,8 +470,6 @@ Should escalate faster, especially when:
 - both rise together in the same layer
 
 That pattern may indicate a developing internal hazard.
-
----
 
 ## External Data and Future Integrations
 
