@@ -415,14 +415,11 @@ That means the system can identify patterns such as:
 
 High temperature and high moisture together are more dangerous than either signal alone.
 
-If both rise together in the same layer or local cluster of nearby balls, severity should escalate faster.
+If both rise together in the same layer or local cluster of nearby balls, the system should escalate severity faster. In other words, when heat and moisture are both elevated at the same time, the platform should require less supporting evidence before moving a pile from OK to Warning or from Warning to Critical.
 
-For example, the system may justify a pile-level warning when:
+In the normal case, a risk increase should usually depend on stronger confirmation, such as a median shift across a meaningful group of sensors in the same layer. For example, the system may want a broader pattern, such as at least around five nearby sensors or a clear layer-level median movement, before increasing severity based on only one metric.
 
-- temperature is at warning level
-- moisture is at warning level
-- several nearby sensors show the same pattern
-- the pattern repeats across multiple sampling cycles
+When temperature and moisture are both high together, that threshold should be lower. For example, instead of waiting for a wider pattern across five nearby sensors, the system could escalate with only three or four nearby sensors showing the same combined condition, especially if the pattern repeats across multiple sampling cycles. This is because combined heat and moisture is a stronger indicator of spoilage or internal hazard than either signal by itself.
 
 ### Distinguishing faulty sensors from real problems
 
