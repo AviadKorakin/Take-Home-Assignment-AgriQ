@@ -7,7 +7,7 @@ This repository contains my submission for the home assignment:
 
 ### Running the project locally
 
-can also be watched here :[preview](https://take-home-assignment-agriq.onrender.com/)
+can also be watched here : [https://take-home-assignment-agriq.onrender.com](https://take-home-assignment-agriq.onrender.com/)
 
 1. Install dependencies:
 
