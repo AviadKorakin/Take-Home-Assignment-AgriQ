@@ -1,0 +1,74 @@
+.panel {
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.siteName {
+  margin: 0 0 4px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.pileName {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.summaryItem {
+  display: grid;
+  gap: 4px;
+}
+
+.label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.issues {
+  margin-bottom: 20px;
+}
+
+.issuesTitle {
+  margin: 0 0 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.issueList {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-secondary);
+  display: grid;
+  gap: 6px;
+}
+
+.issueItem {
+  line-height: 1.45;
+}
+
+@media (max-width: 720px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+}

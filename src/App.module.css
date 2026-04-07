@@ -1,0 +1,12 @@
+.appShell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.pageContent {
+  min-height: 0;
+  overflow: auto;
+  padding: clamp(16px, 2vw, 24px);
+}

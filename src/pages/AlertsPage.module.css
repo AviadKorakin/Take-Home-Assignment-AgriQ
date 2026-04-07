@@ -1,0 +1,63 @@
+.page {
+  width: 100%;
+}
+
+.pageHeader {
+  margin-bottom: 18px;
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  color: var(--text-primary);
+}
+
+.description {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.alertCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  outline: 2px solid var(--border-strong);
+  outline-offset: 0;
+  border-radius: var(--panel-radius);
+  padding: 18px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.warning {
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.critical {
+  background: var(--status-critical-bg);
+  color: var(--status-critical-text);
+}
+
+.alertTitle {
+  margin: 0 0 8px;
+  color: var(--text-primary);
+}
+
+.alertText {
+  margin: 0;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,43 @@
+.card {
+  min-width: 0;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.label {
+  display: inline-block;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.pileName {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+}
+
+.content {
+  display: grid;
+  gap: 14px;
+}
+
+.value {
+  margin: 0;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.action {
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.45;
+}

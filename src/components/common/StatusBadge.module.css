@@ -1,0 +1,36 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 6px 12px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  border-radius: 0;
+}
+
+.compact {
+  min-height: 24px;
+  padding: 4px 8px;
+  font-size: 0.76rem;
+}
+
+.ok {
+  background: var(--status-ok-bg);
+  color: var(--status-ok-text);
+}
+
+.warning {
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.critical {
+  background: var(--status-critical-bg);
+  color: var(--status-critical-text);
+}
+
+.faulty {
+  background: var(--status-faulty-bg);
+  color: var(--status-faulty-text);
+}
